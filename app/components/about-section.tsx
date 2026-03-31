@@ -44,7 +44,7 @@ export function AboutSection() {
               alt="Team collaboration"
               width={600}
               height={291}
-              className="w-full h-auto"
+              className="w-full h-auto aspect-[600/291]"
             />
           </motion.div>
 
