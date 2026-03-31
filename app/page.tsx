@@ -12,7 +12,7 @@ export default function Home() {
   return (
     <>
       <Navbar />
-      <main className="flex flex-col flex-1">
+      <main className="flex flex-col flex-1 bg-white">
         <HeroSection />
         <FeatureStrip />
         <AboutSection />
