@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
+import { BookOpen } from 'lucide-react';
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -37,34 +38,36 @@ export function Navbar() {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 group">
-            <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-gradient-to-br from-amber-400 to-amber-600">
-              <span className="text-sm font-bold text-black">E</span>
+            <div className="flex items-center justify-center w-10 h-10 rounded-[10px] bg-gradient-to-br from-[#FEE685] to-[#FFD230]">
+              <BookOpen className="w-5 h-5 text-black" strokeWidth={2} />
             </div>
-            <span className="text-lg font-bold text-white">EZBooks</span>
+            <span className="text-xl sm:text-2xl font-semibold tracking-[0.07px] text-white">EZBooks</span>
           </Link>
 
-          {/* Nav Links */}
-          <div className="hidden md:flex items-center gap-8">
-            {navLinks.map((link) => (
-              <a
-                key={link.label}
-                href={link.href}
-                className="text-sm font-medium text-gray-300 hover:text-white transition-colors duration-200"
-              >
-                {link.label}
-              </a>
-            ))}
-          </div>
+          <div className="flex items-center gap-6">
+            {/* Nav Links */}
+            <div className="hidden md:flex items-center gap-8">
+              {navLinks.map((link) => (
+                <a
+                  key={link.label}
+                  href={link.href}
+                  className="text-sm sm:text-base font-normal -tracking-[0.31px] text-[#D1D5DC] hover:text-white transition-colors duration-200"
+                >
+                  {link.label}
+                </a>
+              ))}
+            </div>
 
-          {/* CTA Button */}
-          <motion.a
-            href="#contact"
-            className="inline-flex items-center gap-2 px-5 py-2 rounded-full bg-gradient-to-r from-amber-400 to-amber-500 text-black font-semibold text-sm hover:shadow-lg hover:shadow-amber-500/30 transition-all duration-200"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-          >
-            Get Started
-          </motion.a>
+            {/* CTA Button */}
+            <motion.a
+              href="#contact"
+              className="inline-flex items-center gap-2 px-5 py-2 rounded-[8px] bg-gradient-to-r from-[#FEE685] to-[#FFD230] text-black font-semibold text-sm hover:shadow-lg hover:shadow-amber-500/30 transition-all duration-200"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              Get Started
+            </motion.a>
+          </div>
         </div>
       </div>
     </motion.nav>

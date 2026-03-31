@@ -1,6 +1,8 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import { BookOpen } from 'lucide-react';
+import Link from 'next/link';
 
 export function Footer() {
   return (
@@ -14,19 +16,19 @@ export function Footer() {
           transition={{ duration: 0.6 }}
         >
           {/* Logo */}
-          <div className="flex items-center gap-2 justify-center">
-            <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-gradient-to-br from-amber-400 to-amber-600">
-              <span className="text-sm font-bold text-black">E</span>
+          <Link href="/" className="flex items-center gap-2 group">
+            <div className="flex items-center justify-center w-10 h-10 rounded-[10px] bg-gradient-to-br from-[#FEE685] to-[#FFD230]">
+              <BookOpen className="w-5 h-5 text-black" strokeWidth={2} />
             </div>
-            <span className="text-lg font-bold">EZBooks</span>
-          </div>
+            <span className="text-xl sm:text-2xl font-semibold tracking-[0.07px] text-white">EZBooks</span>
+          </Link>
 
           {/* Tagline */}
-          <p className="text-gray-400">Bookkeeping & Lender-Ready Financials</p>
+          <p className="font-light text-base sm:text-lg tracking-tight text-[#FEE685]">Bookkeeping & Lender-Ready Financials</p>
 
           {/* Copyright */}
-          <div className="pt-4 border-t border-gray-800 w-full">
-            <p className="text-sm text-gray-500">
+          <div className="pt-4 border-t border-[#1E2939] w-full max-w-[1250px]">
+            <p className="font-normal text-sm -tracking-[0.15px] text-[#99A1AF]">
               © 2025 EZBooks. All rights reserved.
             </p>
           </div>
