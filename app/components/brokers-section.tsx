@@ -1,7 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Handshake } from 'lucide-react';
 import Image from 'next/image';
 
 export function BrokersSection() {
@@ -28,7 +28,7 @@ export function BrokersSection() {
   return (
     <section
       id="brokers"
-      className="relative py-24 px-4 sm:px-6 lg:px-8 bg-gray-900 overflow-hidden"
+      className="relative py-24 px-4 sm:px-6 lg:px-8 bg-black overflow-hidden"
     >
       {/* Gradient accents */}
       <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-to-br from-amber-500/20 to-transparent blur-3xl opacity-50" />
@@ -47,10 +47,10 @@ export function BrokersSection() {
             {/* Badge */}
             <motion.div
               variants={itemVariants}
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-amber-600/20 border border-amber-500/50 w-fit"
+              className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#FEE6851A] border border-[#FEE68533] w-fit"
             >
-              <div className="w-2 h-2 rounded-full bg-amber-400" />
-              <span className="text-sm font-medium text-amber-200">
+              <Handshake className="w-4 h-4 text-[#FEE685]" />
+              <span className="text-xs sm:text-sm font-medium -tracking-[0.15px] text-[#FEE685]">
                 Key Differentiator
               </span>
             </motion.div>
@@ -58,24 +58,23 @@ export function BrokersSection() {
             {/* Headline */}
             <motion.h2
               variants={itemVariants}
-              className="text-4xl sm:text-5xl font-bold text-white"
+              className="text-3xl sm:text-4xl lg:text-5xl font-bold tracking-[0.35px] text-white"
             >
-              Built for Lending Brokers
+              Built for <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FEE685] to-[#FFD230]">Lending Brokers</span>
             </motion.h2>
 
             {/* Paragraph */}
             <motion.p
               variants={itemVariants}
-              className="text-lg text-gray-300 leading-relaxed"
+              className="text-lg sm:text-xl text-[#D1D5DC] -tracking-[0.45px]"
             >
-              We help you move deals forward by turning messy client books into
-              clean, lender-ready financials—fast.
+              We help you move deals forward by turning messy client books into clean, lender-ready financials—fast.
             </motion.p>
 
             {/* CTA Button */}
             <motion.a
               href="#contact"
-              className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-lg bg-gradient-to-r from-amber-400 to-amber-500 text-black font-semibold hover:shadow-lg hover:shadow-amber-500/30 transition-all duration-200 w-fit"
+              className="inline-flex items-center justify-center gap-2 px-4 py-3 rounded-lg bg-gradient-to-r from-[#FEE685] to-[#FFD230] text-black font-semibold text-base sm:text-lg hover:shadow-lg hover:shadow-amber-500/30 transition-all duration-200 w-fit"
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}
               variants={itemVariants}
@@ -88,17 +87,14 @@ export function BrokersSection() {
           {/* Right - Image */}
           <motion.div
             variants={itemVariants}
-            className="relative h-96 sm:h-[500px] rounded-3xl overflow-hidden"
           >
             <Image
-              src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&h=700&fit=crop"
+              src="/images/brokers-partnership.svg"
               alt="Lending Brokers Partnership"
-              fill
-              className="object-cover"
-              placeholder="blur"
-              blurDataURL="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNDAiIGhlaWdodD0iMzAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHJlY3Qgd2lkdGg9IjQwIiBoZWlnaHQ9IjMwIiBmaWxsPSIjZWVlZWVlIi8+PC9zdmc+"
+              width={600}
+              height={339.52}
+              className="w-full h-auto max-w-[600px] mx-auto rounded-[16px] border-2 border-[#FEE68533] shadow-[0_25px_50px_-12px_rgba(0,0,0,0.25)]"
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-gray-900/40 to-transparent" />
           </motion.div>
         </motion.div>
       </div>
