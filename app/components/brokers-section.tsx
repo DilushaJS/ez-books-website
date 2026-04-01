@@ -73,7 +73,7 @@ export function BrokersSection() {
 
             {/* CTA Button */}
             <motion.a
-              href="#contact"
+              href="#contact-us"
               className="inline-flex items-center justify-center gap-2 px-4 py-3 rounded-lg bg-gradient-to-r from-[#FEE685] to-[#FFD230] text-black font-semibold text-base sm:text-lg hover:shadow-lg hover:shadow-amber-500/30 transition-all duration-200 w-fit"
               whileHover={{ scale: 1.05, y: -2 }}
               whileTap={{ scale: 0.95 }}

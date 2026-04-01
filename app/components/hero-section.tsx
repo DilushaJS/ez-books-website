@@ -136,7 +136,7 @@ export function HeroSection() {
               className="flex flex-col sm:flex-row gap-4"
             >
               <motion.a
-                href="#contact"
+                href="#contact-us"
                 className="get-started-btn inline-flex items-center justify-center gap-2 px-4 py-4 rounded-[14px] transition-all duration-200 gap-4"
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}

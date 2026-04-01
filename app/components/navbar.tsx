@@ -60,7 +60,7 @@ export function Navbar() {
 
             {/* CTA Button */}
             <motion.a
-              href="#contact"
+              href="#contact-us"
               className="inline-flex items-center gap-2 px-5 py-2 rounded-[8px] bg-gradient-to-r from-[#FEE685] to-[#FFD230] text-black font-semibold text-sm hover:shadow-lg hover:shadow-amber-500/30 transition-all duration-200"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
