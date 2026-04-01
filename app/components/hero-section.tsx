@@ -193,6 +193,7 @@ export function HeroSection() {
                   src="/images/hero-image.svg"
                   alt="Dashboard Preview"
                   fill
+                  loading="eager"
                   sizes="(min-width: 1024px) 556px, (min-width: 640px) 70vw, 90vw"
                   className="rounded-[16px] object-cover"
                 />
