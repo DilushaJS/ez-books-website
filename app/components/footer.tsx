@@ -2,6 +2,7 @@
 
 import { motion } from 'framer-motion';
 import { BookOpen } from 'lucide-react';
+import Image from 'next/image';
 import Link from 'next/link';
 
 export function Footer() {
@@ -17,10 +18,14 @@ export function Footer() {
         >
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 group">
-            <div className="flex items-center justify-center w-10 h-10 rounded-[10px] bg-gradient-to-br from-[#FEE685] to-[#FFD230]">
-              <BookOpen className="w-5 h-5 text-black" strokeWidth={2} />
-            </div>
-            <span className="text-xl sm:text-2xl font-semibold tracking-[0.07px] text-white">EZBooks</span>
+            <Image
+              src="/images/logo.svg"
+              alt="EZBooks Logo"
+              width={214.2}
+              height={37.24}
+              sizes="(max-width: 640px) 140px, (max-width: 1024px) 180px, 214px"
+              className="w-[140px] sm:w-[180px] lg:w-[214px] h-auto"
+            />
           </Link>
 
           {/* Tagline */}
