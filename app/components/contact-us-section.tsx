@@ -271,11 +271,10 @@ export function ContactUsSection() {
                             border
                             transition-all
                             duration-200
-                            hover:bg-[#FFF3E6]
                             ${
                               selected
-                                ? 'bg-[#E17100] text-white border-[#E17100]'
-                                : 'bg-white text-[#E17100] border-[#E17100]'
+                                ? 'bg-[#E17100] text-white border-[#E17100] hover:bg-[#E17100]/90'
+                                : 'bg-white text-[#E17100] border-[#E17100] hover:bg-[#FFF3E6]'
                             }
                           `}
                         >

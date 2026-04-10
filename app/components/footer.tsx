@@ -1,7 +1,6 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { BookOpen } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 
@@ -23,6 +22,7 @@ export function Footer() {
               alt="EZBooks Logo"
               width={214.2}
               height={37.24}
+              loading="eager"
               sizes="(max-width: 640px) 140px, (max-width: 1024px) 180px, 214px"
               className="w-[140px] sm:w-[180px] lg:w-[214px] h-auto"
             />

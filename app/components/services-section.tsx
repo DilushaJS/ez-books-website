@@ -119,7 +119,7 @@ export function ServicesSection() {
                 </motion.div>
 
                 {/* Content */}
-                <h3 className="text-lg lg:text-xl font-medium -tracking[0.45px] text-black mb-6">
+                <h3 className="text-lg lg:text-xl font-medium -tracking-[0.45px] text-black mb-6">
                   {service.title}
                 </h3>
                 <p className="text-sm lg:text-base font-normal -tracking-[0.31px] text-[#4A5565]">

@@ -31,7 +31,7 @@ export function FeatureStrip() {
   };
 
   return (
-    <section className="bg-[#F9FAFB] py-12 px-4 sm:px-6 lg:px-8 border-1 border-[#E5E7EB]">
+    <section className="bg-[#F9FAFB] py-12 px-4 sm:px-6 lg:px-8 border-[1px] border-[#E5E7EB]">
       <div className="max-w-7xl mx-auto">
         <motion.div
           className="flex flex-wrap items-center justify-center gap-6 lg:gap-8"

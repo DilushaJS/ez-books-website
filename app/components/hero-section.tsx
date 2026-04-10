@@ -4,6 +4,9 @@ import { motion } from 'framer-motion';
 import { ArrowRight, TrendingUp, Check } from 'lucide-react';
 import Image from 'next/image';
 
+import { CalEmbedModal } from './cal-embed-modal';
+import { useCalEmbed } from './use-cal-embed';
+
 const heroStyles = `
   @layer components {
     .hero-section-bg {
@@ -62,6 +65,8 @@ const heroStyles = `
 `;
 
 export function HeroSection() {
+  const { embedUrl, isLoading, isOpen, open, close, markLoaded } =
+    useCalEmbed();
   const stats = [
     { number: '500+', label: 'Clients Served' },
     { number: '98%', label: 'Success Rate' },
@@ -91,7 +96,7 @@ export function HeroSection() {
   return (
     <>
       <style>{heroStyles}</style>
-      <section className="min-h-screen hero-section-bg pt-32 pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
+      <section className="hero-section-bg pt-32 pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
       <div className="max-w-7xl mx-auto">
         <motion.div
           className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-center"
@@ -137,21 +142,22 @@ export function HeroSection() {
             >
               <motion.a
                 href="#contact-us"
-                className="get-started-btn inline-flex items-center justify-center gap-2 px-4 py-4 rounded-[14px] transition-all duration-200 gap-4"
+                className="get-started-btn inline-flex items-center justify-center gap-2 px-4 py-4 rounded-[14px] transition-all duration-200"
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
               >
                 Get Started
                 <ArrowRight className="w-4 h-4" />
               </motion.a>
-              <motion.a
-                href="#contact"
+              <motion.button
+                type="button"
+                onClick={open}
                 className="inline-flex items-center justify-center gap-2 px-8 py-4 rounded-[18px] bg-[#FFFFFFCC] border-2 border-[#D1D5DC] font-medium leading-[28px] -tracking-[0.44px] text-black font-semibold hover:border-gray-300 hover:shadow-md transition-all duration-200"
                 whileHover={{ scale: 1.05, y: -2 }}
                 whileTap={{ scale: 0.95 }}
               >
                 Book a Consultation
-              </motion.a>
+              </motion.button>
             </motion.div>
 
             {/* Stats */}
@@ -223,6 +229,13 @@ export function HeroSection() {
         </motion.div>
       </div>
       </section>
+      <CalEmbedModal
+        isOpen={isOpen}
+        isLoading={isLoading}
+        embedUrl={embedUrl}
+        onClose={close}
+        onLoad={markLoaded}
+      />
     </>
   );
 }

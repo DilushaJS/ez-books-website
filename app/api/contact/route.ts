@@ -11,6 +11,24 @@ type ContactPayload = {
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
+const escapeHtml = (value: string) =>
+  value.replace(/[&<>"']/g, (char) => {
+    switch (char) {
+      case '&':
+        return '&amp;';
+      case '<':
+        return '&lt;';
+      case '>':
+        return '&gt;';
+      case '"':
+        return '&quot;';
+      case "'":
+        return '&#39;';
+      default:
+        return char;
+    }
+  });
+
 export async function POST(request: Request) {
   const body = (await request.json().catch(() => null)) as ContactPayload | null;
 
@@ -40,6 +58,13 @@ export async function POST(request: Request) {
   const interestLabel =
     interest && interest.length > 0 ? interest.join(', ') : 'Not selected';
   const descriptionLabel = description.trim();
+
+  const safeFullName = escapeHtml(fullName);
+  const safeBusinessName = escapeHtml(businessName || 'N/A');
+  const safeEmail = escapeHtml(email);
+  const safePhone = escapeHtml(phone || 'N/A');
+  const safeInterest = escapeHtml(interestLabel);
+  const safeDescription = escapeHtml(descriptionLabel);
 
   const textBody = [
     'New Contact Request',
@@ -77,28 +102,28 @@ export async function POST(request: Request) {
                 <table role="presentation" cellpadding="0" cellspacing="0" width="100%" style="border-collapse:collapse;font-size:14px;">
                   <tr>
                     <td style="padding:8px 0;color:#6b7280;width:160px;">Name</td>
-                    <td style="padding:8px 0;color:#111827;font-weight:600;">${fullName}</td>
+                    <td style="padding:8px 0;color:#111827;font-weight:600;">${safeFullName}</td>
                   </tr>
                   <tr>
                     <td style="padding:8px 0;color:#6b7280;">Business</td>
-                    <td style="padding:8px 0;color:#111827;">${businessName || 'N/A'}</td>
+                    <td style="padding:8px 0;color:#111827;">${safeBusinessName}</td>
                   </tr>
                   <tr>
                     <td style="padding:8px 0;color:#6b7280;">Email</td>
-                    <td style="padding:8px 0;color:#111827;">${email}</td>
+                    <td style="padding:8px 0;color:#111827;">${safeEmail}</td>
                   </tr>
                   <tr>
                     <td style="padding:8px 0;color:#6b7280;">Phone</td>
-                    <td style="padding:8px 0;color:#111827;">${phone || 'N/A'}</td>
+                    <td style="padding:8px 0;color:#111827;">${safePhone}</td>
                   </tr>
                   <tr>
                     <td style="padding:8px 0;color:#6b7280;">Interest</td>
-                    <td style="padding:8px 0;color:#111827;">${interestLabel}</td>
+                    <td style="padding:8px 0;color:#111827;">${safeInterest}</td>
                   </tr>
                 </table>
                 <div style="margin-top:16px;padding:16px;background:#fff8db;border-radius:10px;border:1px solid #fde68a;">
                   <p style="margin:0 0 8px 0;font-weight:600;font-size:14px;color:#111827;">Description</p>
-                  <p style="margin:0;font-size:14px;white-space:pre-line;color:#111827;">${descriptionLabel}</p>
+                  <p style="margin:0;font-size:14px;white-space:pre-line;color:#111827;">${safeDescription}</p>
                 </div>
               </td>
             </tr>
